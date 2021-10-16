@@ -1,0 +1,11 @@
+[
+	{
+		"ParameterKey": "EnvironmentName",
+		"ParameterValue": "WebApp"
+	},
+    {
+        "ParameterKey": "AMItoUse",
+        "ParameterValue": "ami-0e341fcaad89c3650"
+      }
+]
+
