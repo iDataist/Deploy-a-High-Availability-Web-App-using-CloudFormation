@@ -5,7 +5,7 @@
 	},
     {
         "ParameterKey": "AMItoUse",
-        "ParameterValue": "ami-02e136e904f3da870"
+        "ParameterValue": "ami-01cc34ab2709337aa"
       }
 ]
 
