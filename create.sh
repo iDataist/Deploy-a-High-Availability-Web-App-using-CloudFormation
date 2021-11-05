@@ -1,4 +1,4 @@
-STACK=server2
+STACK=server
 TEMPLATE=file://server2.yml
 PARAMETER=file://server-parameters.json
 REGION=us-east-1
