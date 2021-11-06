@@ -73,12 +73,14 @@ Resources:
     Properties:
       UserData:
         Fn::Base64: !Sub |
-          #!/bin/bash
-          sudo apt-get update -y
-          sudo apt-get install apache2 -y
-          sudo systemctl start apache2.service
+          #!/bin/bash -xe
+          exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+          apt update -y
+          apt install -y apache2
+          systemctl start apache2
+          systemctl enable apache2
           cd /var/www/html
-          echo "Udacity Demo Web Server Up and Running!" > index.html
+          echo "Udagram Web Server Up and Running!" > index.html
       ImageId: !Ref AMItoUse
       KeyName: ec2
       IamInstanceProfile: !Ref ServerInstanceProfile
