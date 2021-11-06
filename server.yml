@@ -76,11 +76,12 @@ Resources:
           #!/bin/bash -xe
           exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
           apt update -y
-          apt install -y apache2
+          apt install -y apache2 unzip awscli
           systemctl start apache2
           systemctl enable apache2
           cd /var/www/html
-          echo "Udagram Web Server Up and Running!" > index.html
+          aws s3 cp s3://udagram20211105/udagram.zip .
+          unzip -o udagram.zip
       ImageId: !Ref AMItoUse
       KeyName: ec2
       IamInstanceProfile: !Ref ServerInstanceProfile
